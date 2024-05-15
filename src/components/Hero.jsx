@@ -20,6 +20,7 @@ const Hero = ({title,imageUrl}) => {
             <img src="/Vector.png" alt="vector" />
           </span>
         </div>
+        
     </div>
   )
 }
