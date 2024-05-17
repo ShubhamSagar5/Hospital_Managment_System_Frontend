@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar'
 import { Context } from './main'
 import axios from 'axios'
+import Footer from './components/Footer'
 
  const App = () => {
   
@@ -44,6 +45,7 @@ import axios from 'axios'
           <Route path='/about' element={<AboutUs/>} />
           <Route path='/login' element={<Login/>} />         
         </Routes>
+        <Footer/>
         <ToastContainer position='top-center'/>
       </Router>
 

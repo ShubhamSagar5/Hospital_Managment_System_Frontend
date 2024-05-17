@@ -30,7 +30,8 @@ const Navbar = () => {
 
     return (
     <nav className="container">
-        <div className="logo">ZeeCare</div>
+                       <img src={"/logo.png"} alt="logo" className='logo-img' />
+
         <div className={show ? "navLinks showmenu":"navLinks"}> 
             <div className="links">
                 <Link to={"/"}>HOME</Link>
