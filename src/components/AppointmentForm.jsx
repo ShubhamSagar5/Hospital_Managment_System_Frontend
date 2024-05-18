@@ -21,16 +21,15 @@ const AppointmentForm = () => {
 
 
   const deapartmentsArray = [
-    "Gynecologist",
-    "Oncologist",
-    "Endocrinologist",
-    "Psychiatrists",
-    "Cardiologists",
-    "Pediatrician",
-    "Dermatologist",
-    "Neurologist",
-    "Gastroenterology",
-    "Nephrologist",
+    "Pediatrics",
+    "Orthopedics",
+    "Cardiology",
+    "Neurology",
+    "Oncology",
+    "Radiology",
+    "Physical Therapy",
+    "Dermatology",
+    "ENT",
 
   ]
 
