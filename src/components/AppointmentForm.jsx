@@ -12,11 +12,11 @@ const AppointmentForm = () => {
   const [aadharNumber,setaadharNumber] = useState("")
   const [dob,setDob] = useState("")
   const [gender,setGender] = useState("")
-  const [appointment_date,setAppointmentDate] = useState("")
-  const [doctor_firstName,setDoctorFirstName] = useState("")
-  const [doctor_lastName,setDoctorLastName] = useState("")
+  const [appointmentdate,setAppointmentDate] = useState("")
+  const [doctorfirstName,setDoctorFirstName] = useState("")
+  const [doctorlastName,setDoctorLastName] = useState("")
   const [department,setDepartment] = useState("")
-  const [hasVisited,setHasVistied] = useState("")
+  const [hasVisited,setHasVistied] = useState(false)
   const [address,setAddress] = useState("")
 
 
@@ -47,6 +47,19 @@ const navigate = useNavigate()
 
 const handleAppointment = async(e) => {
   e.preventDefault()
+  console.log(firstName,
+    lastName,
+    email,
+    phone,
+    aadharNumber,
+    dob,
+    gender,
+    appointmentdate,
+    doctorfirstName,
+    doctorlastName,
+    department,
+    hasVisited,
+    address)
   try {
     const hasVisitedBool = Boolean(hasVisited)
     const response = await axios.post("http://localhost:4000/api/v1/appointment/send",{
@@ -57,9 +70,9 @@ const handleAppointment = async(e) => {
     aadharNumber,
     dob,
     gender,
-    appointment_date,
-    doctor_firstName,
-    doctor_lastName,
+    appointment_date:appointmentdate,
+    doctor_firstName:doctorfirstName,
+    doctor_lastName:doctorlastName,
     department,
     hasVisited:hasVisitedBool,
     address
@@ -104,7 +117,7 @@ const handleAppointment = async(e) => {
               <option value="Other">Other</option>
             </select>
          
-          <input type="date"  value={appointment_date} onChange={(e)=>setAppointmentDate(e.target.value)} placeholder='Appointment Date'/>
+          <input type="date"  value={appointmentdate} onChange={(e)=>setAppointmentDate(e.target.value)} placeholder='Appointment Date'/>
 
          
           </div>
@@ -126,7 +139,7 @@ const handleAppointment = async(e) => {
               }             
             </select>
 
-            <select value={`${doctor_firstName} ${doctor_lastName}`} onChange={(e)=>{
+            <select value={`${doctorfirstName} ${doctorlastName}`} onChange={(e)=>{
               const [ firstName,lastName] = e.target.value.split(" ")
               setDoctorFirstName(firstName)
               setDoctorLastName(lastName)
@@ -136,7 +149,8 @@ const handleAppointment = async(e) => {
             {
               doctors?.filter((doc)=>doc.doctorDepartment === department).map((doctr,index)=>{
                 return (
-                  <option value={`${doctr.firstName} ${doctr.lastName}`} key={index}>{doctr.firstName} {doctr.lastName}</option>
+                  
+                  <option value={`${doctr.firstName} ${doctr.lastName}`} key={index}>{doctr.firstName +" "+ doctr.lastName} </option>
                 )
               })
             }

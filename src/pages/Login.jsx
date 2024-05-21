@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 const Login = () => {
   
-  const {isAuthenticated,setIsAuthenticated} = useContext(Context)
+  const {isAuthenticated,setIsAuthenticated,setUser} = useContext(Context)
   
   const navigate = useNavigate()
 
@@ -20,6 +20,7 @@ const Login = () => {
       const response = await axios.post("http://localhost:4000/api/v1/user/login",{email,password,confirmPassword,role:"Patient"},{withCredentials:true,headers:{"Content-Type":"application/json"}})
       toast.success(response.data.message)
       setIsAuthenticated(true)
+      setUser(response.data.user)
       navigate("/")
     } catch (error) {
       toast.error(error.response.data.message)

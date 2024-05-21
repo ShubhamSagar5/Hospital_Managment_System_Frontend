@@ -24,10 +24,9 @@ import Footer from './components/Footer'
       try {
         const response = await axios.get("http://localhost:4000/api/v1/user/patient/me",{withCredentials:true})
         setIsAuthenticated(true)
-        setUser(response.data.user)
+        setUser(response.data.userDeatails)
       } catch (error) {
         setIsAuthenticated(false)
-        setUser({})
       }
     }
     fetchUser()
