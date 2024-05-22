@@ -1,9 +1,13 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
+import { useNavigate } from 'react-router-dom'
 
 const Departments = () => {
+  
+
+  const navigate = useNavigate()
+  
   const departmentsArray = [
     {
       name: "Pediatrics",
@@ -82,7 +86,7 @@ const Departments = () => {
           {departmentsArray.map((depart, index) => {
             return (
               <div key={index} className="card">
-                <div className="depart-name">{depart.name}</div>
+                <div className="depart-name" onClick={()=>navigate("/appointment")}>{depart.name}</div>
                 <img src={depart.imageUrl} alt="Department" />
               </div>
             );
